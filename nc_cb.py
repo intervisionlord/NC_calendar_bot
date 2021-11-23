@@ -2,7 +2,7 @@
 import requests, json, yaml
 
 # Константы, конфиги, переменные
-s_version = '0.0.1a-03'
+s_version = '0.0.1a-04'
 
 # Проверяем наличие DEV конфигов. Если есть, используем.
 # Если нет, берем дефолтные
@@ -11,7 +11,7 @@ try:
     auth_cfg = yaml.full_load(open('conf/DEV_auth_conf.yml', 'r'))
 except:
     main_cfg = yaml.full_load(open('conf/api_conf.yml', 'r'))
-    auth_cfg = yaml.full_load(open('conf/DEV_auth_conf.yml', 'r'))
+    auth_cfg = yaml.full_load(open('conf/auth_conf.yml', 'r'))
 finally:
     api_url = main_cfg['ncapi']['url']
     api_username = auth_cfg['auth']['login']
