@@ -1,18 +1,27 @@
 # Модули и прочая дичь
 import requests
 import json
+import yaml
 
-# Константы
-s_version = '0.0.1a'
+# Константы, конфиги, переменные
+s_version = '0.0.1a-02'
+
+# Проверяем наличие DEV конфигов. Если есть, используем.
+# Если нет, берем дефолтные
+try:
+    main_cfg = yaml.full_load(open('conf/DEV_api_conf.yml', 'r'))
+    auth_cfg = yaml.full_load(open('conf/DEV_auth_conf.yml', 'r'))
+except:
+    main_cfg = yaml.full_load(open('conf/api_conf.yml', 'r'))
+    auth_cfg = yaml.full_load(open('conf/DEV_auth_conf.yml', 'r'))
+finally:
+    api_url = main_cfg['ncapi']['url']
+    api_username = auth_cfg['auth']['login']
+    api_password = auth_cfg['auth']['password']
+
 # s_locale = 'ru'
-
-# Берем данные об УЗ из конфига
-auth_conf=open('auth.conf')
-auth=auth_conf.read().splitlines()
-api_username=str(auth[0])
-api_password=str(auth[1])
-api_url=str(auth[2])
-auth_conf.close()
+# Вынести ее в конфиг и подготовить что-то вроде локализации
+#################
 
 # Формируем запрос к API
 headers = {'OCS-APIRequest': 'true', 'Accept': 'application/json'}

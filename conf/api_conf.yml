@@ -1,0 +1,2 @@
+ncapi:
+  url: https://URL_TO_YOUR_NC_API # URL до API Вашего инстанса NextCloud
