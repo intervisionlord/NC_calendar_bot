@@ -1,10 +1,8 @@
 # Модули и прочая дичь
-import requests
-import json
-import yaml
+import requests, json, yaml
 
 # Константы, конфиги, переменные
-s_version = '0.0.1a-02'
+s_version = '0.0.1a-03'
 
 # Проверяем наличие DEV конфигов. Если есть, используем.
 # Если нет, берем дефолтные
