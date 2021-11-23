@@ -1,2 +1,6 @@
 ncapi:
   url: https://URL_TO_YOUR_NC_API # URL до API Вашего инстанса NextCloud
+  sections: # Не редактируйте то, что идет ниже. Значения стандартные для API v.1
+    users: cloud/users
+    userid: cloud/USERID
+    capabilities: cloud/capabilities

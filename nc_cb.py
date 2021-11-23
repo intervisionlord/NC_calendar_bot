@@ -2,7 +2,7 @@
 import requests, json, yaml
 
 # Константы, конфиги, переменные
-s_version = '0.0.1a-05'
+s_version = '0.0.1a-06'
 
 # Проверяем наличие DEV конфигов. Если есть, используем.
 # Если нет, берем дефолтные
@@ -12,7 +12,7 @@ try:
 except:
     main_cfg = yaml.full_load(open('conf/api_conf.yml', 'r'))
 finally:
-    api_url = main_cfg['ncapi']['url']
+    api_url = main_cfg['ncapi']['url'] + main_cfg['ncapi']['sections']['users']
 # Проверяем конфиг авторизации
 try:
     auth_cfg = yaml.full_load(open('conf/DEV_auth_conf.yml', 'r'))
@@ -24,6 +24,7 @@ finally:
 
 # s_locale = 'ru'
 # Вынести ее в конфиг и подготовить что-то вроде локализации
+# А надо ли? -06
 #################
 
 # Формируем запрос к API
